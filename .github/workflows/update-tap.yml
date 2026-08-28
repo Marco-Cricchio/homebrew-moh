@@ -1,0 +1,34 @@
+# Update the `moh` formula from the latest GitHub Release of Marco-Cricchio/moh.
+#
+# The formula lives in this tap but its url/sha256/version can only be
+# finalized after a release is published (draft releases are invisible to
+# `releases/latest`, so polling the latest release is the trigger). This
+# workflow runs daily and on demand; when a new stable release is found it
+# downloads the platform assets, verifies them against the release's
+# checksums.txt, regenerates Formula/moh.rb, and commits.
+name: update-tap
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Regenerate formula from the latest release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: .github/scripts/update-formula.sh
+      - name: Commit updated formula
+        run: |
+          git config user.name "moh-tap-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add Formula/moh.rb
+          git diff --cached --quiet || git commit -m "moh $(grep -m1 'version ' Formula/moh.rb | sed 's/.*"\(.*\)".*/\1/')"
+          git push
