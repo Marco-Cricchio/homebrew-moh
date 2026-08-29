@@ -13,7 +13,8 @@ on:
     - cron: "17 5 * * *"
   workflow_dispatch:
 
-permissions: {}
+permissions:
+  contents: write
 
 jobs:
   update:
