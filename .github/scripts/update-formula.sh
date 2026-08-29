@@ -5,7 +5,7 @@
 set -euo pipefail
 
 UPSTREAM="Marco-Cricchio/moh"
-cd "$(dirname "$0")/../../.."
+cd "$(dirname "$0")/../.."
 
 tag="$(gh api "repos/${UPSTREAM}/releases/latest" --jq .tag_name)"
 version="${tag#v}"
