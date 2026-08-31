@@ -12,6 +12,8 @@ on:
   schedule:
     - cron: "17 5 * * *"
   workflow_dispatch:
+  repository_dispatch: # from moh release publication (update-tap-dispatch.yml)
+    types: [update-formula]
 
 permissions:
   contents: write
