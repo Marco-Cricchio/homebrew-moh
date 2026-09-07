@@ -2,21 +2,21 @@
 class Moh < Formula
   desc "Provider-agnostic, headless-first coding agent with the Matt Pocock workflow built in"
   homepage "https://github.com/Marco-Cricchio/moh"
-  version "0.23.2"
+  version "0.24.0"
   license "MIT"
   on_macos do
     on_arm do
-      url "https://github.com/Marco-Cricchio/moh/releases/download/v0.23.2/moh-darwin-arm64"
-      sha256 "0d4da14f690eb513355e730a420baaa011211fe0bbaafbfe359b4deedf34cd58"
+      url "https://github.com/Marco-Cricchio/moh/releases/download/v0.24.0/moh-darwin-arm64"
+      sha256 "9a24c7ecbf06aa19a7cf38b019819894debca6574433dd0d0411554df298d8bb"
     end
     on_intel do
-      url "https://github.com/Marco-Cricchio/moh/releases/download/v0.23.2/moh-darwin-x64"
-      sha256 "e4ba3e58fcc111cfb49af0c6bbbcdebf26f93300fcc68528cd669c0d66d2fd46"
+      url "https://github.com/Marco-Cricchio/moh/releases/download/v0.24.0/moh-darwin-x64"
+      sha256 "2929214c74b613c18f4010e28236e26f02e1067e4994d5e7156bd07d90f9b882"
     end
   end
   on_linux do
-    url "https://github.com/Marco-Cricchio/moh/releases/download/v0.23.2/moh-linux-x64"
-    sha256 "ec19edb28c7dfc4d0cab8e3d83f4099fcdd664368170520b44cb27649bfb4f62"
+    url "https://github.com/Marco-Cricchio/moh/releases/download/v0.24.0/moh-linux-x64"
+    sha256 "0b032f87a634a4b78189d95639c4224b627615ca4393d9cfe337d7e1dff7578d"
   end
 
   def install
